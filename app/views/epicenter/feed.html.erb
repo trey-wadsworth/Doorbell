@@ -1,0 +1,14 @@
+<h1>Welcome @<%= current_user.username %></h1>
+
+<h3>Here is what your friends are saying...</h3>
+<div>
+	<% @following_tweets.each do |tweet| %>
+		<div>
+			<p><%= image_tag tweet.user.avatar.url, class: "thumb" %>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></p>
+			<p><%= tweet.message.html_safe %></p>
+		</div>
+	<% end %>
+</div>
+
+
+<%= link_to "Wanna Tweet?", new_tweet_path %>
