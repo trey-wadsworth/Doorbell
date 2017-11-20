@@ -34,13 +34,18 @@ body{
 }
 
 .navbar{
-	background-color: #cccccc;
-}
-
-.nav-button{
-	text-color: white;
+	background-color: black;
 }
 
 .navbar-default .navbar-nav > li > a {
     color: white;
+}
+
+.nb-color{
+	color: white;
+}
+
+.show-pic{
+	width: 150px;
+	height: 150px;
 }

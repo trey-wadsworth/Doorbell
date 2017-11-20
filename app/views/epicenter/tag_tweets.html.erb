@@ -1,0 +1,19 @@
+<div>
+	<h1>All the talk about <%= @tag.phrase %></h1>
+</div>
+
+<div class="row">
+	 <!--  a place for current user stats -->
+	 <div>
+	 	<% @tag.tweets.order(created_at: :desc).each do |tweet| %>
+	 		<p>
+	 			<td><%= image_tag tweet.user.avatar.url, class: 'thumb' %></td>
+	 			<%= link_to "@#{tweet.user.username}", show_user_path(id: tweet.user_id) %> • <%= time_ago_in_words(tweet.created_at) %>
+	 		</p>
+	 		<p>
+	 			<%= tweet.message.html_safe %>
+	 		</p>
+	 	<% end %>
+	 </div>
+</div>
+

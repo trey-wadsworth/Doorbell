@@ -2,11 +2,12 @@
 
 <p><%= image_tag @tweet.user.avatar.url, class: 'small-pic' %></p>
 
-<h2>@<%= link_to @tweet.user.username, show_user_path(id: @tweet.user.id) %> said...</h2>
+<h2> @<%= link_to @tweet.user.username, show_user_path(id: @tweet.user.id) %> said...</h2>
+<p> <%= time_ago_in_words(@tweet.created_at) %> ago</p>
 
 <div class="well">
 	<p>
-		<%=@tweet.message %>
+		<%=@tweet.message.html_safe %>
 	</p>
 </div>
 

@@ -36,6 +36,7 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'local_time', '~> 1.0', '>= 1.0.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
