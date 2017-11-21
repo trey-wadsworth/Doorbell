@@ -6,10 +6,11 @@
 <p><%= @user.name %></p>
 <p><%= @user.location %></p>
 <p><%= @user.bio %></p>
+<p><%= link_to "#{@user.name}'s Followers", followers_path(id: @user), class: "btn btn-warning" %> <%= link_to "Who #{@user.name} is following", following_path(id: @user.id), class: "btn btn-warning" %></p>
 
 <p>
 	<% if current_user.following.include?(@user.id) %>
-		<%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger" %>
+		<%= link_to "Following", unfollow_path(id: @user.id), class: "btn btn-primary unfollow_btn" %>
 	<% else %>
 		<% if current_user.id != @user.id %>
 			<%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary" %>

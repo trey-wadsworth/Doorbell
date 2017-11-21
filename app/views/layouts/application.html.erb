@@ -4,8 +4,8 @@
     <title>Doorbell</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -37,6 +37,7 @@
           
             <li><%= link_to "Compose New Tweet", new_tweet_path %></li>
             <li><%= link_to "My User Page", show_user_path(id: current_user.id) %></li>
+            <li><%= link_to "All Users", all_users_path %></li>
             
 
             <li class="dropdown">
@@ -96,6 +97,11 @@
          <div class="col-lg-3"> 
           <div class="well">
            <h3>What's hot now!</h3>
+           <% hot_tags.each do |tag| %>
+            <li><%= link_to tag.phrase, tag_tweets_path(id: tag.id) %></li>
+          <% end %>
+          <h3>HOTTEST TWEETER:</h3>
+          <%= link_to "@#{top_tweeter.username}", show_user_path(id: top_tweeter.id) %> with <%= top_number_tweets %> tweets!
             
               
           </div>
